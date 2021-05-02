@@ -1,0 +1,10 @@
+import sys
+ import urllib
+ import urllib.request
+import random
+ x = random.randint(1,10)
+ r=urllib.request.urlopen('https://api.thingspeak.com/update?api_key=F48IW46SZH2SA7D4&field1=x')
+ print(r.read())
+b'7'
+ r=urllib.request.urlopen('https://api.thingspeak.com/channels/1363262/fields/1.json?results=2')
+ print(r.read())
