@@ -1,0 +1,69 @@
+#if you want to scrape a website:
+#1. USe the API
+#2. HTML WEb Scraping using some tools
+import requests
+from bs4 import BeautifulSoup
+url ="https://codewithharry.com"
+#Step1: Get the HTML
+r=requests.get(url)
+htmlContent=r.content
+print(htmlContent)
+
+#Step2:Parse the HTML
+soup=BeautifulSoup(htmlContent,'html.parser')
+print(soup.pretify);
+#HTML Tree traversal
+#Commanly used types of objects:
+# 1. Tag
+#2. NavigableString
+#3. BeautifulSoup Object
+#4. Commetn
+title=soup.title
+#print(type(title.soup)) 3. BeautfulSoup
+#print(type(title)) 1. Tag
+#print(type(title.string)) # 2. NavigableString
+# 4. Commnt
+# Get the title of the HTML page
+
+markup="<p><!-- this is a comment --></p>"
+soup2=BeautifulSoup(markup)
+print(soup2.p.string))
+title=soup.title
+exit()
+
+#Get all the paragraphs from the page
+paras=soup.find_all('p')
+#print(paras)
+anchors=soup.find_all('p')
+print(anchors)
+
+
+#Get first element in the HTML page
+print(soup.find('p')['class'])
+
+#find all the elements with class lead
+print(soup.find_all("p",class_="lead"))
+
+# Get the text from tags/soup
+print(soup.find('p').get_text())
+print(soup.get_text())
+
+#Get all the links on the page
+all_links=set()
+for link in anchors:
+    if(link!='#')
+    linkText="http://codewithharry.com"+link.get('href')
+    all_links.add(link)
+    print(linkText)
+   # .contents - A tag's children are available as a list
+    # .children - A tag's children are available as a generater
+    navbarSupportedContent=soup.find(id="navSupportedContent")
+    for elem in navbarSupportContent.childred:
+        print(elem)
+
+ #for item in navbarSupportedContent.stripped_strings:
+    # print(item)
+    print(navbarSupportedContent.parent)
+      for item in navbarSupportedContent.parent:
+          print(item.name)
+
